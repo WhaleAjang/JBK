@@ -35,4 +35,4 @@ jobs:
      # Github secrets로부터 데이터를 받아서, 워크 플로우에 파일을 생성
      - name: Connect to EC2 and pull Docker image
        run: |
-         ssh -o StrictHostKeyChecking=no ubuntu@18.224.95.29 "docker-compose -f /docker-compose.yml pull"
+         ssh -o StrictHostKeyChecking=no ubuntu@18.224.95.29 "docker-compose -f /docker-compose.yml up"
