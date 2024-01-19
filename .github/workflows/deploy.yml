@@ -1,13 +1,9 @@
 name: CD with Gradle
-# 언제 이 파일의 내용이 실행될 것인지 정의합니다. 
-# 여기서는 main 브랜치에 코드가 push 되거나 pull_request되었을 때 실행할 것을 말하고 있습니다.
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-# 코드의 내용을 이 파일을 실행하여 action을 수행하는 주체(Github Actions에서 사용하는 VM)가 읽을 수 있도록 허용합니다.
 permissions:
   contents: read
 
@@ -20,7 +16,6 @@ jobs:
      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     steps:
-  # 지정한 저장소(현재 REPO)에서 코드를 워크플로우 환경으로 가져오도록 하는 github action
      - uses: actions/checkout@v3
      #nodejs 백엔드 환경 세팅
      - name: Set up Node.js
