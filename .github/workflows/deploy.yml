@@ -28,11 +28,11 @@ jobs:
        with:
          node-version: '14'
 
-     - name: Configure AWS credentials
+     - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
-       with:
-         aws-access-key-id: ${{ secrets.EC2_ID }}
-         aws-secret-access-key: ${{ secrets.EC2_KEY }}
+       with: 
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
          aws-region: ap-northeast-2
      
      - name: Login to Docker Hub
