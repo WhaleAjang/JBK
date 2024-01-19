@@ -1,0 +1,19 @@
+version: '3'
+services:
+  react-app:
+    image: react-app
+    ports:
+      - "80:5173"
+    restart: always
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+
+  node-app:
+    image: node-app
+    ports:
+      - "4000:4000"
+    restart: always
+    build: 
+      context: backend
+      dockerfile: Dockerfile
