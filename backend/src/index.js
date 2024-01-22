@@ -34,6 +34,9 @@ app.post('/', (req,res) => {
     console.log(req.body);
     res.json(req.body);
 })
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'OK' });
+});
 
 app.use((error, req, res, next) => {
     res.status(error.status || 500); //express에서 제공하는 errorstatus가 있다면 그걸 클라이언트한테 보내주고 없다면 임의로 500을 보낸다
