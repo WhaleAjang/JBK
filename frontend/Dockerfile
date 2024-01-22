@@ -4,5 +4,6 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 COPY . .
-EXPOSE 5173
+#컨테이너 포 5173을 외부로 노출
+EXPOSE 5173 
 CMD ["npm", "run","start"]
