@@ -30,11 +30,14 @@ jobs:
       - name: Install nodemailer
         run: npm i nodemailer
 
-      #커밋 내용 제목으로 설정하기
+      #push / pr 경우일 때 제목 카테고리 각각 설정
       - name: Set Subject from Commit Message
-        run:
+        run: |
+          if [ "${{ github.event_name }}" == "push" ]; then
           echo "EMAIL_SUBJECT= [PUSH]$(git log -1 --pretty=format:%s)" >> $GITHUB_ENV
-
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
+          echo "EMAIL_SUBJECT= [PR]$(github.event.pull_request.title)" >> $GITHUB_ENV
+        
 
       #sendEmail.js 실행
       - name: Send Email
