@@ -33,17 +33,18 @@ jobs:
 #        id: read-file
 #        run: echo "RECEIVE_USER=$(cat ./github/receive.txt)" >> $GITHUB_ENV
 
+
       #메일 보내기 위한 모듈 설치
       - name: Install nodemailer
         run: npm i nodemailer
-
-      #sendEmail.js 실행
-      - name: Send Email
-        run: node backend/src/sendEmail.js
 
       #커밋 내용 제목으로 설정하기
       - name: Set Subject from Commit Message
         run:
           SUBJECT=$(git log -1 --pretty=format:%s)
           echo "EMAIL_SUBJECT= ${SUBJECT}" >> $GITHUB_ENV
+
+      #sendEmail.js 실행
+      - name: Send Email
+        run: node backend/src/sendEmail.js
 
