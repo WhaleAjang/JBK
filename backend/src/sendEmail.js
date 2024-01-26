@@ -8,6 +8,7 @@ const sendEmail = async () => {
     });
 
     const emailbody = process.env.EMAIL_BODY
+    console.log("body: ",emailbody)
     const mailOptions = {
         to: process.env.RECEIVE_USER,
         subject: process.env.EMAIL_SUBJECT, // 제목
