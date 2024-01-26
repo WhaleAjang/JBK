@@ -33,8 +33,8 @@ jobs:
       #커밋 내용 제목으로 설정하기
       - name: Set Subject from Commit Message
         run:
-          EMAIL_SUBJECT=$(git log -1 --pretty=format:%s)
-          echo "EMAIL_SUBJECT= ${EMAIL_SUBJECT}" >> $GITHUB_ENV
+          echo "EMAIL_SUBJECT= $(git log -1 --pretty=format:%s)" >> $GITHUB_ENV
+
 
       #sendEmail.js 실행
       - name: Send Email
