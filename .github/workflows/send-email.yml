@@ -1,0 +1,39 @@
+name: push email
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # ubuntu 최신 버전에서 script를 실행
+
+    #secret에 저장된 내 정보
+    #secret 변수를 환경변수로 설정해주기
+    env:
+      GMAIL_USER: ${{ secrets.GMAIL_USER }}
+      GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+      RECEIVE_USER: ${{ secrets.RECEIVE_USER}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      #nodejs 백엔드 환경 세팅
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      #발신 이메일을 깃허브에 저장해서 깃허브 환경변수로 설정하는 스텝 (이미 환경변수로 해둬서 필요없음)
+#      - name: Read Receiver Email
+#        id: read-file
+#        run: echo "RECEIVE_USER=$(cat ./github/receive.txt)" >> $GITHUB_ENV
+
+      #메일 보내기 위한 모듈 설치
+      - name: Install nodemailer
+        run: npm i nodemailer
+
+      #sendEmail.js 실행
+      - name: Send Email
+        run: npm run email
+
+
