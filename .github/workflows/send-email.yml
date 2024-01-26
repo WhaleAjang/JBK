@@ -46,7 +46,7 @@ jobs:
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
-          RECEIVE_USER: ${{ secrets.GMAIL_RECIEVE_USER}}
+          RECEIVE_USER: ${{ secrets.RECEIVE_USER}}
           EMAIL_SUBJECT: ${{ env.EMAIL_SUBJECT}}
   #secret에 저장된 내 정보
   #secret 변수를 환경변수로 설정해주기
