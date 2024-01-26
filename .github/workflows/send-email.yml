@@ -45,5 +45,5 @@ jobs:
       - name: Set Subject from Commit Message
         run:
           SUBJECT=$(git log -1 --pretty=format:%s)
-          echo "EMAIL_SUBJECT= [${SUBJECT}]" >> $GITHUB_ENV
+          echo "EMAIL_SUBJECT= ${SUBJECT}" >> $GITHUB_ENV
 
