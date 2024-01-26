@@ -7,13 +7,13 @@ const sendEmail = async () => {
         auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASSWORD },
     });
 
-    const emailbody = process.env.EMAIL_BODY
-    console.log("body: ",emailbody)
+    const emailBody = process.env.EMAIL_BODY
+    console.log("body: ",emailBody)
     const mailOptions = {
         to: process.env.RECEIVE_USER,
         subject: process.env.EMAIL_SUBJECT, // 제목
         text : "git push 알림입니다.",
-        html: `<h1>GIT NOTOFICATION</h1><p>${emailbody}</p>`,
+        html: `<h1>GIT NOTOFICATION</h1><p>${emailBody}</p>`,
         // attachments: [
         //
         // ],
