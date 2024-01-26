@@ -33,8 +33,8 @@ jobs:
       #커밋 내용 제목으로 설정하기
       - name: Set Subject from Commit Message
         run:
-          SUBJECT=$(git log -1 --pretty=format:%s)
-          echo "EMAIL_SUBJECT= ${SUBJECT}" >> $GITHUB_ENV
+          EMAIL_SUBJECT=$(git log -1 --pretty=format:%s)
+          echo "EMAIL_SUBJECT= ${EMAIL_SUBJECT}" >> $GITHUB_ENV
 
       #sendEmail.js 실행
       - name: Send Email
@@ -43,6 +43,6 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
           RECEIVE_USER: ${{ secrets.GMAIL_RECIEVE_USER}}
-          EMAIL_SUBJECT: ${{ secrets.EMAIL_SUBJECT}}
+          EMAIL_SUBJECT: ${{ env.EMAIL_SUBJECT}}
   #secret에 저장된 내 정보
   #secret 변수를 환경변수로 설정해주기
