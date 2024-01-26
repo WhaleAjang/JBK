@@ -37,7 +37,7 @@ jobs:
             echo "EMAIL_SUBJECT= [PUSH]$(git log -1 --pretty=format:%s)" >> $GITHUB_ENV
           elif [ "${{ github.event_name }}" == "pull_request" ]; then
             git checkout ${{ github.head_ref }}
-            echo "EMAIL_SUBJECT= [PR]$(github.event.pull_request.title)" >> $GITHUB_ENV
+            echo "EMAIL_SUBJECT= [PR]$(git log -1 --pretty=format:%s)" >> $GITHUB_ENV
           fi
         
 
