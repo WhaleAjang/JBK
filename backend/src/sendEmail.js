@@ -11,7 +11,7 @@ const sendEmail = async () => {
         to: process.env.RECEIVE_USER,
         subject: process.env.EMAIL_SUBJECT, // 제목
         text : "git push 알림입니다.",
-        html: `<h1>GIT PUSH NOTOFICATION</h1><p>git push가 성공하였습니다!</p>`,
+        html: `<h1>GIT NOTOFICATION</h1><p>${process.env.EMAIL_BODY}</p>`,
         // attachments: [
         //
         // ],
