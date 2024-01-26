@@ -1,9 +1,13 @@
 name: push email
 on:
+  #push 됐을 시 실행
   push:
     branches: [ "main" ]
+  #pr
   pull_request:
     branches: [ "main" ]
+  #이슈 생성시 실행
+  issues:
 
 jobs:
   build:
@@ -15,6 +19,7 @@ jobs:
       GMAIL_USER: ${{ secrets.GMAIL_USER }}
       GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       RECEIVE_USER: ${{ secrets.GMAIL_RECIEVE_USER}}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -36,4 +41,9 @@ jobs:
       - name: Send Email
         run: node backend/src/sendEmail.js
 
+      #커밋 내용 제목으로 설정하기
+      - name: Set Subject from Commit Message
+        run:
+          SUBJECT=$(git log -1 --pretty=format:%s)
+          echo "SUBJECT= [${SUBJECT}]" >> $GITHUB
 
