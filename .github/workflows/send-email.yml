@@ -34,6 +34,6 @@ jobs:
 
       #sendEmail.js 실행
       - name: Send Email
-        run: npm run email
+        run: nodemon backend/src/sendEmail.js
 
 
