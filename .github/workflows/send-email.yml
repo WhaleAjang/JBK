@@ -14,7 +14,7 @@ jobs:
     env:
       GMAIL_USER: ${{ secrets.GMAIL_USER }}
       GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
-      RECEIVE_USER: ${{ secrets.RECEIVE_USER}}
+      RECEIVE_USER: ${{ secrets.GMAIL_RECIEVE_USER}}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
