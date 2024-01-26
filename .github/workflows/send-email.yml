@@ -37,6 +37,7 @@ jobs:
           echo "EMAIL_SUBJECT= [PUSH]$(git log -1 --pretty=format:%s)" >> $GITHUB_ENV
           elif [ "${{ github.event_name }}" == "pull_request" ]; then
           echo "EMAIL_SUBJECT= [PR]$(github.event.pull_request.title)" >> $GITHUB_ENV
+          fi
         
 
       #sendEmail.js 실행
