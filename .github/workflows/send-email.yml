@@ -36,7 +36,6 @@ jobs:
           if [ "${{ github.event_name }}" == "push" ]; then
             echo "EMAIL_SUBJECT= [PUSH]$(git log -1 --pretty=format:%s)" >> $GITHUB_ENV
           elif [ "${{ github.event_name }}" == "pull_request" ]; then
-            # git checkout ${{ github.head_ref }}
             echo "EMAIL_SUBJECT= [PR]${{github.event.pull_request.title}}" >> $GITHUB_ENV
           fi
       #msg 바디 가져오기
